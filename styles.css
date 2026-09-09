@@ -449,11 +449,10 @@ select {
 
 .hive {
   display: grid;
-  grid-template-columns: repeat(3, minmax(150px, 190px));
+  grid-template-columns: repeat(2, minmax(230px, 260px));
   justify-content: center;
-  column-gap: 18px;
-  row-gap: 26px;
-  width: min(660px, 100%);
+  gap: 18px;
+  width: min(580px, 100%);
 }
 
 .hive-cell {
@@ -462,18 +461,15 @@ select {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 5px;
+  gap: 6px;
   min-height: 150px;
-  padding: 48px 26px 30px;
-  clip-path: polygon(50% 0%, 94% 25%, 94% 75%, 50% 100%, 6% 75%, 6% 25%);
+  padding: 22px 24px;
+  border-radius: 18px;
+  box-shadow: 0 8px 20px rgba(30, 34, 40, 0.12);
   color: #fff;
   text-decoration: none;
   text-align: center;
   transition: transform 0.16s ease, filter 0.16s ease;
-}
-
-.hive-cell:nth-child(4) {
-  grid-column: 2;
 }
 
 .hive-cell:hover,
@@ -502,9 +498,9 @@ select {
 .hive-icon {
   display: grid;
   place-items: center;
-  width: 48px;
-  height: 44px;
-  margin-bottom: 3px;
+  width: 52px;
+  height: 48px;
+  margin-bottom: 5px;
 }
 
 .hive-icon svg {
@@ -1408,8 +1404,8 @@ select {
   }
 
   .hive {
-    grid-template-columns: repeat(2, minmax(150px, 190px));
-    row-gap: 18px;
+    grid-template-columns: repeat(2, minmax(200px, 250px));
+    gap: 16px;
   }
 
   .board-head {
@@ -1459,22 +1455,25 @@ select {
   }
 
   .hive-cell {
-    min-height: 126px;
-    padding: 40px 12px 22px;
+    min-height: 128px;
+    padding: 18px 10px 16px;
+    border-radius: 14px;
+    box-shadow: 0 5px 14px rgba(30, 34, 40, 0.1);
   }
 
   .hive-cell strong {
-    font-size: 14px;
+    font-size: 15px;
   }
 
   .hive-icon {
-    width: 40px;
-    height: 34px;
+    width: 42px;
+    height: 38px;
+    margin-bottom: 2px;
   }
 
   .hive-icon svg {
-    width: 27px;
-    height: 27px;
+    width: 28px;
+    height: 28px;
   }
 
   .daily-custom {
