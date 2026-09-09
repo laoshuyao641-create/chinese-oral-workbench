@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>标准汉语会话360句（3）第1课 · 口语练习工作台</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#top" aria-label="返回顶部">
+      <span class="brand-badge">360</span>
+      <span class="brand-copy">
+        <strong>标准汉语会话360句（3）</strong>
+        <small>第1课 · 口语练习工作台</small>
+      </span>
+    </a>
+    <nav class="topnav" aria-label="板块导航">
+      <a href="#dailyPanel" data-view="daily">每日</a>
+      <a href="#homeView" data-view="home">主页</a>
+      <a href="#textbook" data-view="textbook">教材内容</a>
+      <a href="#listening" data-view="listening">听力练习</a>
+      <a href="#practice" data-view="practice">课后练习</a>
+    </nav>
+  </header>
+
+  <div id="dailyPanel" class="daily-pin" aria-label="每日口语小练习"></div>
+
+  <main id="top">
+    <section class="board home" id="homeView">
+      <div class="board-inner">
+        <div class="board-head">
+          <div>
+            <p class="kicker">口语练习工作台 / Oral workbench</p>
+            <h2>第1课 · 学校附近有超市吗？</h2>
+            <p class="board-note">标准汉语会话360句（3） · 第1课</p>
+          </div>
+          <div class="lesson-chip">Lesson 1</div>
+        </div>
+        <div class="hive-wrap" aria-label="模块选择">
+          <a class="hive-cell hive-daily" href="#dailyPanel" data-view="daily">
+            <span class="hive-icon" data-icon="calendar"></span>
+            <strong>每日口语</strong>
+            <small>Daily talk</small>
+          </a>
+          <a class="hive-cell hive-text" href="#textbook" data-view="textbook">
+            <span class="hive-icon" data-icon="book"></span>
+            <strong>教材内容</strong>
+            <small>Textbook</small>
+          </a>
+          <a class="hive-cell hive-listen" href="#listening" data-view="listening">
+            <span class="hive-icon" data-icon="headphone"></span>
+            <strong>听力练习</strong>
+            <small>Listening</small>
+          </a>
+          <a class="hive-cell hive-practice" href="#practice" data-view="practice">
+            <span class="hive-icon" data-icon="clipboard"></span>
+            <strong>课后练习</strong>
+            <small>Practice</small>
+          </a>
+        </div>
+        <p class="home-progress"><strong id="homeProgress">0 / 5</strong></p>
+      </div>
+    </section>
+
+    <section class="board textbook module-view" id="textbook" hidden>
+      <div class="board-inner">
+        <div class="board-head">
+          <div>
+            <p class="kicker">教材内容 / きょうざい</p>
+            <h2>学校附近有超市吗？</h2>
+            <p class="board-note">Xuéxiào fùjìn yǒu chāoshì ma? ／ 学校の近くにスーパーはありますか？</p>
+          </div>
+          <div class="seg" id="textToggles">
+            <input type="checkbox" id="showPy" checked>
+            <label for="showPy">拼音</label>
+            <input type="checkbox" id="showJa" checked>
+            <label for="showJa">日本語</label>
+          </div>
+        </div>
+        <div id="textbookContent" class="lesson-text"></div>
+      </div>
+    </section>
+
+    <section class="board listening module-view" id="listening" hidden>
+      <div class="board-inner">
+        <div class="board-head">
+          <div>
+            <p class="kicker">听力练习 / リスニング</p>
+            <h2>听一听，跟着说</h2>
+            <p class="board-note">录音顺序：标准句 · 会话 · 词语 · 语音</p>
+          </div>
+          <a class="jump-link" href="#homeView" data-view="home">返回主页</a>
+        </div>
+        <div id="listeningContent" class="lesson-audio"></div>
+      </div>
+    </section>
+
+    <section class="board practice module-view" id="practice" hidden>
+      <div class="board-inner">
+        <div class="board-head">
+          <div>
+            <p class="kicker">课后练习 / れんしゅう</p>
+            <h2>在、是、有，说清楚位置</h2>
+            <p class="board-note">看答案前先自己说一遍</p>
+          </div>
+          <a class="jump-link" href="#homeView" data-view="home">返回主页</a>
+        </div>
+        <div id="practiceContent" class="lesson-practice"></div>
+      </div>
+    </section>
+  </main>
+
+  <noscript>
+    <p class="noscript">这个练习工作台需要开启 JavaScript。</p>
+  </noscript>
+</body>
+</html>
