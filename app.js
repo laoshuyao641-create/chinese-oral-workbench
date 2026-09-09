@@ -15,7 +15,8 @@
     book: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z"/></svg>',
     headphone: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 14v-2a9 9 0 0 1 18 0v2"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/></svg>',
     clipboard: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1"/><path d="m9 12 2 2 4-4"/></svg>',
-    calendar: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M8 2v4M16 2v4M3 10h18"/><path d="M5 4h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Z"/></svg>'
+    calendar: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M8 2v4M16 2v4M3 10h18"/><path d="M5 4h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Z"/></svg>',
+    download: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M4 17v4h16v-4"/></svg>'
   };
 
   const svg = (name) => icons[name] || '';
@@ -449,6 +450,9 @@
               ${track.quizzes.length ? `<div class="quiz-list">${trackQuizzesHtml(track.quizzes)}</div>` : ''}
             </div>
             <div class="quick-tools">
+              <a class="reveal-btn" href="${track.src}" download="audio-${track.id}.mp3" aria-label="下载音频 ${track.id}">
+                ${svg('download')}<span>下载</span>
+              </a>
               <button class="reveal-btn" type="button" data-reveal aria-expanded="false">
                 ${svg('eye')}<span>文本</span>
               </button>
@@ -747,6 +751,15 @@
     });
   }
 
+  function setupOfflineCache() {
+    if (!('serviceWorker' in navigator)) return;
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('sw.js').catch(() => {
+        // offline caching is optional
+      });
+    });
+  }
+
   function setupListeningEvents() {
     document.addEventListener('click', (event) => {
       const reveal = event.target.closest('[data-reveal]');
@@ -829,6 +842,7 @@
     setupListeningEvents();
     setupPracticeEvents();
     setupRouter();
+    setupOfflineCache();
     injectHiveIcons();
     const hash = window.location.hash.replace('#', '');
     const target = viewIds.includes(hash) || hash === 'daily' ? hash : 'home';
